@@ -1,7 +1,6 @@
 package myLib.datastructures.Linear;
 
-import myLib.datastructures.nodes.*;
-
+import myLib.datastructures.nodes.DNode;
 
 public class SLL {
     private DNode head;
@@ -57,6 +56,10 @@ public class SLL {
 
     }
 
+    public void InsertHead(DNode node){
+        this.insertHead(node);
+    }
+
     public void insertTail(DNode node) {
         if (getHead() != null) {
             DNode now = getHead();
@@ -69,6 +72,10 @@ public class SLL {
 
         }
         setSize(getSize() + 1);
+    }
+
+    public void InsertTail(DNode node){
+        this.insertTail(node);
     }
 
     public void sort() {
@@ -91,6 +98,10 @@ public class SLL {
         }
         setHead(getSorted());
 
+    }
+
+    public void Sort() {
+        this.sort();
     }
 
     public void insert(DNode node, int position) {
@@ -122,6 +133,10 @@ public class SLL {
             node.setPrevious(now);
             now.setNext(node);
         }
+    }
+
+    public void Insert(DNode node, int position){
+        this.insert(node, position);
     }
 
     public void sortedInsert(DNode node) {
@@ -156,6 +171,10 @@ public class SLL {
         setSize(getSize() + 1);
     }
 
+    public void SortedInsert(DNode node) {
+        this.sortedInsert(node);
+    }
+
     public boolean isSorted() {
         DNode now = getHead();
         while (now != null && now.getNext() != getTailPointer()) {
@@ -167,6 +186,10 @@ public class SLL {
         return true;
     }
 
+    public boolean IsSorted() {
+        return isSorted();
+    }
+
     public DNode search(int data) {
         DNode now = getHead();
         while (now != null) {
@@ -176,6 +199,10 @@ public class SLL {
             now = now.getNext();
         }
         return null;
+    }
+
+    public DNode Search(int data) {
+        return search(data);
     }
 
     public DNode deleteHead() {
@@ -193,6 +220,10 @@ public class SLL {
         setSize(getSize() - 1);
         deletedNode.setNext(null);
         return deletedNode;
+    }
+
+    public DNode DeleteHead() {
+        return this.deleteHead();
     }
 
     public DNode deleteTail() {
@@ -213,6 +244,10 @@ public class SLL {
             previous.setNext(null);
         }
         return now;
+    }
+
+    public DNode DeleteTail() {
+        return this.deleteTail();
     }
 
     public DNode delete(int data) {
@@ -236,9 +271,17 @@ public class SLL {
         return now;
     }
 
+    public DNode Delete(int data) {
+        return this.delete(data);
+    }
+
     public void clear() {
         setHead(null);
         setSize(0);
+    }
+
+    public void Clear() {
+        this.clear();
     }
 
     public void print() {
@@ -252,6 +295,10 @@ public class SLL {
         }
     }
 
+    public void Print() {
+        this.print();
+    }
+
     public DNode getterLastNodes() {
         for (DNode now = getHead(); now != null; now = now.getNext()) {
             if (now.getNext() == getTailPointer()) {
@@ -260,5 +307,9 @@ public class SLL {
         }
         return null;
     }
+    public DNode GetterLastNodes() {
+        return this.getterLastNodes();
+    }
+    
 
 }

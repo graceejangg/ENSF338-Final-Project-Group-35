@@ -85,6 +85,10 @@ public class DLL extends SLL {
         this.size = size + 1;
     }
 
+    public void InsertHead(DNode node){
+        this.insertHead(node);
+    }
+
     @Override
     public void insertTail(DNode node) {
         if (getHead() != null) {
@@ -98,6 +102,10 @@ public class DLL extends SLL {
             this.tail = node;
         }
         this.size = size + 1;
+    }
+
+    public void InsertTail(DNode node){
+        this.insertTail(node);
     }
 
     @Override
@@ -129,6 +137,10 @@ public class DLL extends SLL {
         this.size = (size + 1);
     }
 
+    public void Insert(DNode node, int position){
+        this.insert(node, position);
+    }
+
     @Override
     public void sortedInsert(DNode node) {
         DNode now = getHead();
@@ -155,6 +167,10 @@ public class DLL extends SLL {
             now.setNext(node);
         }
         this.size = size + 1;
+    }
+
+    public void SortedInsert(DNode node) {
+        this.sortedInsert(node);
     }
 
     // SORT METHOD
@@ -193,6 +209,10 @@ public class DLL extends SLL {
         setTail(last);
     }
 
+    public void Sort() {
+        this.sort();
+    }
+
     // DELETE METHODS
     @Override
     public DNode deleteHead() {
@@ -218,6 +238,10 @@ public class DLL extends SLL {
         return tempoary;
     }
 
+    public DNode DeleteHead() {
+        return this.deleteHead();
+    }
+
     @Override
     public DNode deleteTail() {
         // Check if the list is empty
@@ -238,6 +262,10 @@ public class DLL extends SLL {
         setTail(newTail);
         setSize(getSize() - 1);
         return tempoary;
+    }
+
+    public DNode DeleteTail() {
+        return this.deleteTail();
     }
 
     @Override
@@ -282,6 +310,10 @@ public class DLL extends SLL {
         return now;
     }
 
+    public DNode Delete(int data) {
+        return this.delete(data);
+    }
+
     // HELPER METHODS
     private DNode nodeAfter(int position) {
         DNode now = getHead();
@@ -289,7 +321,6 @@ public class DLL extends SLL {
             now = now.getNext();
         }
         return now;
-
     }
 
     private DNode getDNode(int position) {

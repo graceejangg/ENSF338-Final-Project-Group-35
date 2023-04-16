@@ -1,5 +1,6 @@
 package myLib.datastructures.Linear;
-import myLib.datastructures.nodes.*;
+
+import myLib.datastructures.nodes.DNode;
 
 public class StackLL extends SLL {
     private DNode head;
@@ -32,6 +33,10 @@ public class StackLL extends SLL {
         size++;
     }
 
+    public void Push(DNode node) {
+        this.push(node);
+    }
+
     public DNode pop() {
         if (!isEmpty()) {
             size--;
@@ -43,8 +48,17 @@ public class StackLL extends SLL {
         }
     }
 
+    public DNode Pop() {
+        return this.pop();
+    }
+    
+
     public boolean isEmpty() {
         return getHead() == null;
+    }
+
+    public boolean IsEmpty() {
+        return this.isEmpty();
     }
 
     public int peek() {
@@ -55,20 +69,41 @@ public class StackLL extends SLL {
         return getHead().getData();
     }
 
+    public int Peek() {
+        return peek();
+    }
+    
+
     @Override
     public void insertTail(DNode node) {
+    }
+
+    public void InsertTail(DNode node) {
+        this.insertTail(node);
     }
 
     @Override
     public void insert(DNode node, int position) {
     }
 
+    public void Insert(DNode node, int position) {
+        this.Insert(node, position);
+    }
+
     @Override
     public void sortedInsert(DNode node) {
     }
 
+    public void SortedInsert(DNode node) {
+        this.sortedInsert(node);
+    }
+
     @Override
     public void sort() {
+    }
+
+    public void Sort() {
+        this.sort();
     }
 
     @Override
@@ -76,9 +111,17 @@ public class StackLL extends SLL {
         return null;
     }
 
+    public DNode DeleteTail() {
+        return deleteTail();
+    }
+
     @Override
     public DNode delete(int data) {
         return null;
+    }
+
+    public DNode Delete(int data) {
+        return delete(data);
     }
 
     public int searchStack(int data) {
@@ -93,5 +136,9 @@ public class StackLL extends SLL {
         } else {
             return -1;
         }
+    }
+
+    public int SearchStack(int data) {
+        return this.searchStack(data);
     }
 }
