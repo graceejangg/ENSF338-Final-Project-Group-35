@@ -20,6 +20,14 @@ public class DNode {
         this.next = next;
     }
 
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
     public DNode getPrevious() {
         return previous;
     }
@@ -28,13 +36,7 @@ public class DNode {
         this.previous = previous;
     }
 
-    public int getData() {
-        return data;
-    }
-
-    public void setData(int data) {
-        this.data = data;
-    }
+    
 
     @Override
     public String toString() {

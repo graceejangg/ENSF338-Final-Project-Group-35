@@ -1,9 +1,9 @@
-package com.example.myLib.datastructures.Trees;
+package myLib.datastructures.Trees;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-import com.example.myLib.datastructures.nodes.TNode;
+import myLib.datastructures.nodes.TNode;
 
 public class BST {
 

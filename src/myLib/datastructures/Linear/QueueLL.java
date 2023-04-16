@@ -7,6 +7,8 @@ public class QueueLL {
   protected int size;
   
 
+  //setters and getters
+
   public DNode getHead() {
     return head;
   }
@@ -35,14 +37,14 @@ public class QueueLL {
     size = 0;
   }
 
-  public void enqueue(DNode node) {
+  
+  
+  public DNode peek() {
     if (head == null) {
-      head = tail = node;
-    } else {
-      tail.setNext(node);
-      tail = node;
+      System.out.println("The Queue is empty");
+      return null;
     }
-    size++;
+    return head;
   }
 
   public void dequeue() {
@@ -57,12 +59,14 @@ public class QueueLL {
     size--;
   }
 
-  public DNode peek() {
+  public void enqueue(DNode node) {
     if (head == null) {
-      System.out.println("The Queue is empty");
-      return null;
+      head = tail = node;
+    } else {
+      tail.setNext(node);
+      tail = node;
     }
-    return head;
+    size++;
   }
 
 

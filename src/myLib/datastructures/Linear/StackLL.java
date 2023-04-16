@@ -5,6 +5,9 @@ public class StackLL extends SLL {
     protected DNode head;
     protected int size;
 
+    //setters and getters
+
+
     public DNode getHead() {
         return head;
     }
@@ -49,17 +52,7 @@ public class StackLL extends SLL {
         return getHead().getData();
     }
 
-    @Override
-    public void insertTail(DNode node) {
-    }
-
-    @Override
-    public void insert(DNode node, int position) {
-    }
-
-    @Override
-    public void sortedInsert(DNode node) {
-    }
+    
 
     @Override
     public void sort() {
@@ -73,6 +66,18 @@ public class StackLL extends SLL {
     @Override
     public DNode delete(int data) {
         return null;
+    }
+
+    @Override
+    public void insertTail(DNode node) {
+    }
+
+    @Override
+    public void insert(DNode node, int position) {
+    }
+
+    @Override
+    public void sortedInsert(DNode node) {
     }
 
     public int searchStack(int data) {

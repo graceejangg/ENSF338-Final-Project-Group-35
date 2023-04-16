@@ -9,8 +9,25 @@ public class DLL extends SLL {
     protected DNode sorted;
     protected DNode tailPointer;
 
+    //setters and getters
     public DNode getHead() {
         return head;
+    }
+
+    
+
+    public DNode getTailPointer() {
+        return tailPointer;
+    }
+
+    public void setTailPointer(DNode tailPointer) {
+        this.tailPointer = tailPointer;
+    }
+
+    
+
+    public void setTail(DNode tail) {
+        this.tail = tail;
     }
 
     public DNode getSorted() {
@@ -21,12 +38,12 @@ public class DLL extends SLL {
         this.sorted = sorted;
     }
 
-    public DNode getTailPointer() {
-        return tailPointer;
+    public int getSize() {
+        return size;
     }
 
-    public void setTailPointer(DNode tailPointer) {
-        this.tailPointer = tailPointer;
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public void setHead(DNode head) {
@@ -35,18 +52,6 @@ public class DLL extends SLL {
 
     public DNode getTail() {
         return tail;
-    }
-
-    public void setTail(DNode tail) {
-        this.tail = tail;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
     }
 
     // constructors
@@ -67,6 +72,23 @@ public class DLL extends SLL {
     }
 
     
+    
+
+    
+    @Override
+    public void insertTail(DNode node) {
+        if (getHead() != null) {
+            tail.setNext(node);
+            node.setPrevious(tail);
+            this.tail = node;
+            
+        } else {
+            setHead(node);
+            this.tail = node;
+        }
+        this.size = size+1;
+    }
+
     @Override
     public void insertHead(DNode node) {
         DNode headnow = getHead() ;
@@ -81,21 +103,6 @@ public class DLL extends SLL {
             this.tail = node;
         }
 
-        this.size = size+1;
-    }
-
-    
-    @Override
-    public void insertTail(DNode node) {
-        if (getHead() != null) {
-            tail.setNext(node);
-            node.setPrevious(tail);
-            this.tail = node;
-            
-        } else {
-            setHead(node);
-            this.tail = node;
-        }
         this.size = size+1;
     }
 
@@ -153,35 +160,7 @@ public class DLL extends SLL {
     
     
 
-    public void sortedInsert(DNode node) {
-        DNode now = getHead();
-        if (isSorted() == false || now == null || getHead().getData() >= node.getData() || now.getNext() == null) {
-            if (isSorted() == false)
-            {sort();}
-            else if(now == null || getHead().getData() >= node.getData()){
-                
-                insertHead(node);
-                this.size =size-1;
-            }
-            else if (now.getNext() == null){
-                insertTail(node);
-                this.size = size-1;
-            }
-        }
-        else {
-            DNode sortednow = getHead().getNext();
-            while (sortednow != null && sortednow.getData() < node.getData()) {
-                now = sortednow;
-            }
-            node.setNext(now.getNext());
-            node.setPrevious(now);
-            if (sortednow != null) {
-                sortednow.setPrevious(node);
-            }
-            now.setNext(node);
-        }
-        this.size = size+1;
-    }
+    
     
 
 
@@ -243,6 +222,36 @@ public class DLL extends SLL {
         getHead().setPrevious(null);
         setSize(getSize() - 1);
         return tempoary;
+    }
+
+    public void sortedInsert(DNode node) {
+        DNode now = getHead();
+        if (isSorted() == false || now == null || getHead().getData() >= node.getData() || now.getNext() == null) {
+            if (isSorted() == false)
+            {sort();}
+            else if(now == null || getHead().getData() >= node.getData()){
+                
+                insertHead(node);
+                this.size =size-1;
+            }
+            else if (now.getNext() == null){
+                insertTail(node);
+                this.size = size-1;
+            }
+        }
+        else {
+            DNode sortednow = getHead().getNext();
+            while (sortednow != null && sortednow.getData() < node.getData()) {
+                now = sortednow;
+            }
+            node.setNext(now.getNext());
+            node.setPrevious(now);
+            if (sortednow != null) {
+                sortednow.setPrevious(node);
+            }
+            now.setNext(node);
+        }
+        this.size = size+1;
     }
     
 
