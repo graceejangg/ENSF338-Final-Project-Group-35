@@ -13,37 +13,31 @@ public class DNode {
     }
 
     public DNode getNext() {
-        return next;
+        return this.next;
     }
 
     public void setNext(DNode next) {
         this.next = next;
     }
 
-    public int getData() {
-        return data;
-    }
-
-    public void setData(int data) {
-        this.data = data;
-    }
-
     public DNode getPrevious() {
-        return previous;
+        return this.previous;
     }
 
     public void setPrevious(DNode previous) {
         this.previous = previous;
     }
 
-    
+    public int getData() {
+        return this.data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
 
     @Override
     public String toString() {
-        if (getNext() == null) {
-            return getData() + "";
-        }
-        return getData() + ", ";
+        return "Value: " + getData();
     }
-    
 }

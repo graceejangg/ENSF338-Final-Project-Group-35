@@ -1,9 +1,7 @@
 package myLib.datastructures.Linear;
 import myLib.datastructures.nodes.*;
 
-public class CDLL extends DLL
-{
-    //setters and getters
+public class CDLL extends DLL {
     public DNode getHead() {
         return super.getHead();
     }

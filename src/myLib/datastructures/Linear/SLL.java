@@ -8,15 +8,20 @@ public class SLL {
     private int size;
     private DNode sorted;
 
-    //setters and getters
-
-
     public void setHead(DNode head) {
         this.head = head;
     }
 
     public DNode getHead() {
         return head;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public DNode getSorted() {
@@ -31,16 +36,6 @@ public class SLL {
         return null;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    
-    
     public SLL() {
         setHead(null);
         setSize(0);
@@ -51,11 +46,32 @@ public class SLL {
         setSize(0);
     }
 
-    
-    
+    public void insertHead(DNode node) {
+        if (getHead() != null) {
+            node.setNext(getHead());
+            setHead(node);
+        } else {
+            setHead(node);
+        }
+        setSize(getSize() + 1);
+
+    }
+
+    public void insertTail(DNode node) {
+        if (getHead() != null) {
+            DNode now = getHead();
+            while (now.getNext() != getTailPointer()) {
+                now = now.getNext();
+            }
+            now.setNext(node);
+        } else {
+            setHead(node);
+
+        }
+        setSize(getSize() + 1);
+    }
 
     public void sort() {
-
         DNode now = getHead();
         setSorted(null);
         while (now != null) {
@@ -74,31 +90,29 @@ public class SLL {
             now = tempoary;
         }
         setHead(getSorted());
-        
-    }
-    
 
-    
+    }
+
     public void insert(DNode node, int position) {
         if (position < 0 || position > getSize()) {
             throw new IndexOutOfBoundsException("Position is invalid at: " + position);
         }
-        
+
         DNode now = getHead();
         int count = 0;
         setSize(getSize() + 1);
-        
+
         if (now == null || position == 0) {
             insertHead(node);
             setSize(getSize() - 1);
             return;
         }
-        
+
         while (now.getNext() != null && count < position - 1) {
             now = now.getNext();
             count++;
         }
-        
+
         if (now.getNext() == null) {
             insertTail(node);
             setSize(getSize() - 1);
@@ -110,35 +124,6 @@ public class SLL {
         }
     }
 
-    public void insertHead(DNode node) {
-        if (getHead() != null) {
-            node.setNext(getHead());
-            setHead(node);
-        } else {
-            setHead(node);
-        }
-        setSize(getSize() + 1);
-
-    }
-
-    
-    public void insertTail(DNode node) {
-        if (getHead() != null) {
-            DNode now = getHead();
-            while (now.getNext() != getTailPointer()) {
-                now = now.getNext();
-            }
-            now.setNext(node);
-        } else {
-            setHead(node);
-            
-        }
-        setSize(getSize() + 1);
-    }
-    
-    
-
-   
     public void sortedInsert(DNode node) {
 
         DNode now = getHead();
@@ -171,10 +156,17 @@ public class SLL {
         setSize(getSize() + 1);
     }
 
-    
-    
-    
-    
+    public boolean isSorted() {
+        DNode now = getHead();
+        while (now != null && now.getNext() != getTailPointer()) {
+            if (now.getData() > now.getNext().getData()) {
+                return false;
+            }
+            now = now.getNext();
+        }
+        return true;
+    }
+
     public DNode search(int data) {
         DNode now = getHead();
         while (now != null) {
@@ -186,17 +178,6 @@ public class SLL {
         return null;
     }
 
-    public boolean isSorted() {
-        DNode now = getHead();
-        while (now != null && now.getNext() != getTailPointer()) {
-            if (now.getData() > now.getNext().getData()) {
-                return false;
-            }
-            now = now.getNext();
-        }
-        return true;
-    }
-    
     public DNode deleteHead() {
         if (getHead() == null) {
             System.out.println("List is empty, cannot delete");
@@ -213,9 +194,7 @@ public class SLL {
         deletedNode.setNext(null);
         return deletedNode;
     }
-    
 
-    
     public DNode deleteTail() {
         if (getHead() == null) {
             System.out.println("List is empty, cannot delete");
@@ -235,9 +214,7 @@ public class SLL {
         }
         return now;
     }
-    
 
-    
     public DNode delete(int data) {
         DNode now = getHead();
         DNode previous = null;
@@ -258,13 +235,12 @@ public class SLL {
         previous.setNext(now.getNext());
         return now;
     }
-    
 
-    
     public void clear() {
         setHead(null);
         setSize(0);
     }
+
     public void print() {
         DNode now = getHead();
         System.out.println("Is list sorted: " + isSorted());
@@ -284,5 +260,5 @@ public class SLL {
         }
         return null;
     }
-    
+
 }

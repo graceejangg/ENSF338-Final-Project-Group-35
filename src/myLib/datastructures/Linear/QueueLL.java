@@ -1,13 +1,14 @@
 package myLib.datastructures.Linear;
 import myLib.datastructures.nodes.DNode;
 
-public class QueueLL {
+public class QueueLL extends SLL{
   protected DNode head;
   protected DNode tail;
   protected int size;
-  
 
-  //setters and getters
+  public int getSize(){
+    return this.size;
+  }
 
   public DNode getHead() {
     return head;
@@ -31,20 +32,14 @@ public class QueueLL {
     size = 0;
   }
 
-  public QueueLL(DNode head, DNode tail) {
-    setHead(head);
-    setTail(tail);
-    size = 0;
-  }
-
-  
-  
-  public DNode peek() {
+  public void enqueue(DNode node) {
     if (head == null) {
-      System.out.println("The Queue is empty");
-      return null;
+      head = tail = node;
+    } else {
+      tail.setNext(node);
+      tail = node;
     }
-    return head;
+    size++;
   }
 
   public void dequeue() {
@@ -59,16 +54,13 @@ public class QueueLL {
     size--;
   }
 
-  public void enqueue(DNode node) {
+  public DNode peek() {
     if (head == null) {
-      head = tail = node;
-    } else {
-      tail.setNext(node);
-      tail = node;
+      System.out.println("The Queue is empty");
+      return null;
     }
-    size++;
+    return head;
   }
-
 
   public int searchQueue(int data) {
     DNode current = head;
@@ -106,4 +98,30 @@ public class QueueLL {
     tail = null;
     size = 0;
   }
+  @Override
+  public void insertTail(DNode node) {
+  }
+
+  @Override
+  public void insert(DNode node, int position) {
+  }
+
+  @Override
+  public void sortedInsert(DNode node) {
+  }
+
+  @Override
+  public void sort() {
+  }
+
+  @Override
+  public DNode deleteTail() {
+      return null;
+  }
+
+  @Override
+  public DNode delete(int data) {
+      return null;
+  }
 }
+
