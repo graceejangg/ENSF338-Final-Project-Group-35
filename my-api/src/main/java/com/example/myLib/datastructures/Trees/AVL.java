@@ -107,6 +107,9 @@ public class AVL extends BST {
         return height(node.getLeft()) - height(node.getRight());
     }
 
+    public void delete(int val){
+        super.delete(val);
+    }
     
     public void insert(int data) {
         super.setRoot(insert(super.getRoot(), data));
