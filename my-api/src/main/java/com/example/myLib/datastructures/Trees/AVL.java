@@ -110,13 +110,22 @@ public class AVL extends BST {
     public void delete(int val){
         super.delete(val);
     }
+    public void Delete(int val){
+        this.delete(val);
+    }
     
     public void insert(int data) {
         super.setRoot(insert(super.getRoot(), data));
     }
+    public void Insert(int data) {
+        this.insert(data);
+    }
 
     public void insert(TNode node){
         setRoot(insert(getRoot(), node));
+    }
+    public void Insert(TNode node){
+        this.insert(node);
     }
 
     // Insert helper function

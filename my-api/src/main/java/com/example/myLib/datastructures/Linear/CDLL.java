@@ -59,11 +59,18 @@ public class CDLL extends DLL {
         getTail().setNext(getHead());
     }
 
+    public void InsertHead(DNode node){
+        this.insertHead(node);
+    }
+
     @Override
     public void insertTail(DNode node) {
         super.insertTail(node);
         super.getTail().setNext(getHead());
         this.getHead().setPrevious(getTail());
+    }
+    public void InsertTail(DNode node){
+        this.insertTail(node);
     }
 
     @Override
@@ -71,6 +78,9 @@ public class CDLL extends DLL {
         super.insert(node, position);
         super.getTail().setNext(getHead());
         this.getHead().setPrevious(getTail());
+    }
+    public void Insert(DNode node, int position){
+        this.insert(node, position);
     }
 
     // need fixing
@@ -120,7 +130,10 @@ public class CDLL extends DLL {
         super.getTail().setNext(getHead());
         super.getHead().setPrevious(getTail());
     }
-
+    public void Sort() {
+        this.sort();
+    }
+    
     public void sortedInsert(DNode node) {
         if (!isSorted()) {
             sort();
@@ -143,6 +156,9 @@ public class CDLL extends DLL {
 
         setSize(getSize() + 1);
     }
+    public void SortedInsert(DNode node) {
+        this.sortedInsert(node);
+    }
 
     @Override
     public DNode search(int data) {
@@ -158,6 +174,9 @@ public class CDLL extends DLL {
         }
         return found;
     }
+    public DNode Search(int data) {
+        return this.search(data);
+    }
 
     @Override
     public DNode deleteHead() {
@@ -168,6 +187,9 @@ public class CDLL extends DLL {
         setSize(getSize() - 1);
         return tempoary;
     }
+    public DNode DeleteHead() {
+        return this.deleteHead();
+    }
 
     @Override
     public DNode deleteTail() {
@@ -177,6 +199,9 @@ public class CDLL extends DLL {
         getHead().setPrevious(getTail());
         setSize(getSize() - 1);
         return tempoary;
+    }
+    public DNode DeleteTail() {
+        return this.deleteTail();
     }
 
     @Override
@@ -208,6 +233,9 @@ public class CDLL extends DLL {
         now.getNext().setPrevious(now.getPrevious());
         return now;
     }
+    public DNode Delete(int data) {
+        return this.delete(data);
+    }
 
     public void print() {
         DNode now = getHead();
@@ -219,9 +247,15 @@ public class CDLL extends DLL {
             now = now.getNext();
         }
     }
+    public void Print() {
+        this.print();
+    }
 
     public void clear() {
         setHead(null);
         setSize(0);
+    }
+    public void Clear(){
+        this.clear();
     }
 }

@@ -67,6 +67,9 @@ public class BST {
         TNode newNode = new TNode(data, 0, null, null, null);
         insert(newNode);
     }
+    public void Insert(int data) {
+        this.insert(data);
+    }
 
     /**
      * Insert(TNode node) : inserts the node passed as argument into the tree
@@ -96,11 +99,18 @@ public class BST {
             node.setParent(parent);
         }
     }
+    public void Insert(TNode node) {
+        this.insert(node);
+    }
+
     // Finds the node equivalent to the node_to_delete in the tree and removes it.
     // If an object of that value is not found then it prints to the user that the
     // object was not found
     public void delete(int val) {
         root = delete(root, val);
+    }
+    public void Delete(int val) {
+        this.delete(val);
     }
 
     // Delete helper function
@@ -140,6 +150,9 @@ public class BST {
     public void printInOrder() {
         printInOrder(this.root);
     }
+    public void PrintInOrder() {
+        printInOrder();
+    }
 
     public void printInOrder(TNode current) {
         if (current != null) {
@@ -147,6 +160,9 @@ public class BST {
             System.out.println(current.getData());
             printInOrder(current.getRight());
         }
+    }
+    public void PrintInOrder(TNode current) {
+        this.PrintInOrder(current);
     }
 
     // prints the content of the tree in Breadth-First order, each level of the
@@ -176,6 +192,9 @@ public class BST {
             System.out.println();
         }
     }
+    public void PrintBF() {
+        this.printBF();
+    }
 
     public TNode search(int val) {
 
@@ -198,5 +217,8 @@ public class BST {
         }
         System.out.println("Value " + val + " not found.");
         return null;
+    }
+    public TNode Search(int val) {
+        return this.search(val);
     }
 }

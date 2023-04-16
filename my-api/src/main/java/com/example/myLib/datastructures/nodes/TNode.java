@@ -1,6 +1,5 @@
 package com.example.myLib.datastructures.nodes;
 
-import java.lang.reflect.Type;
 
 public class TNode {
 

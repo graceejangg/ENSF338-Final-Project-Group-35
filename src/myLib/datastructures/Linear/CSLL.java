@@ -55,8 +55,6 @@ public class CSLL extends SLL {
         setSize(0);
     }
 
-
-
     @Override
     public void insertHead(DNode node) {
         super.insertHead(node);
@@ -67,7 +65,9 @@ public class CSLL extends SLL {
             tail.setNext(head);
         }
     }
-
+    public void InsertHead(DNode node){
+        this.insertHead(node);
+    }
 
     @Override
     public void insertTail(DNode node) {
@@ -81,9 +81,9 @@ public class CSLL extends SLL {
             setTailPointer(getTail());
         }
     }
-    
-
-    
+    public void InsertTail(DNode node){
+        this.insertTail(node);
+    }
 
     @Override
     public void insert(DNode node, int position) {
@@ -95,13 +95,15 @@ public class CSLL extends SLL {
         setTail(now);
         getTail().setNext(getHead());
     }
-
+    public void Insert(DNode node, int position){
+        this.insert(node, position);
+    }
 
     @Override
     public void sort() {
         DNode now = getHead();
         setSorted(null);
-    
+
         for (int i = 0; i < getSize(); i++) {
             DNode tempoary = now.getNext();
             if (getSorted() == null || getSorted().getData() >= now.getData()) {
@@ -118,17 +120,20 @@ public class CSLL extends SLL {
             now = tempoary;
         }
         setHead(getSorted());
-    
+
         DNode tempoary2 = getHead();
         for (int i = 1; i < getSize(); i++) {
             tempoary2 = tempoary2.getNext();
-    
+
         }
         setTail(tempoary2);
         getTail().setNext(getHead());
-    
+
     }
-    
+    public void Sort() {
+        this.sort();
+    }
+
     @Override
     public DNode search(int data) {
         DNode now = getHead();
@@ -138,19 +143,20 @@ public class CSLL extends SLL {
             if (now.getData() == data) {
                 found = now;
                 i++;
-            }
-            else {
+            } else {
                 now = now.getNext();
                 i++;
             }
 
         }
-        if (now == null && i > getSize()){
+        if (now == null && i > getSize()) {
             return found;
         }
         return found;
     }
-    
+    public DNode Search(int data) {
+        return this.search(data);
+    }
 
     @Override
     public DNode deleteHead() {
@@ -159,6 +165,9 @@ public class CSLL extends SLL {
         getTail().setNext(head);
         setSize(size - 1);
         return tempoary;
+    }
+    public DNode DeleteHead() {
+        return this.deleteHead();
     }
 
     @Override
@@ -179,8 +188,9 @@ public class CSLL extends SLL {
             return tempoary;
         }
     }
-        
-    
+    public DNode DeleteTail() {
+        return this.deleteTail();
+    }
 
     @Override
     public DNode delete(int data) {
@@ -189,21 +199,20 @@ public class CSLL extends SLL {
         DNode nullDNode = null;
         setSize(getSize() - 1);
 
-        if (now.getData() == data ) {
+        if (now.getData() == data) {
             setSize(size + 1);
-            if(now.getNext() == getHead()){
+            if (now.getNext() == getHead()) {
                 return deleteTail();
-            }
-            else if (now != null){
+            } else if (now != null) {
                 return deleteHead();
-            } 
-            
+            }
+
         }
         while (now.getNext() != getHead() && now.getData() != data) {
             tempoarynow = now;
             now = now.getNext();
         }
-        
+
         if (now.getNext() == getHead()) {
             setSize(size + 1);
             System.out.println("Value not found in list \n");
@@ -211,5 +220,8 @@ public class CSLL extends SLL {
         }
         tempoarynow.setNext(now.getNext());
         return now;
+    }
+    public DNode Delete(int data) {
+        return this.delete(data);
     }
 }

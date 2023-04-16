@@ -65,6 +65,9 @@ public class CSLL extends SLL {
             tail.setNext(head);
         }
     }
+    public void InsertHead(DNode node){
+        this.insertHead(node);
+    }
 
     @Override
     public void insertTail(DNode node) {
@@ -78,6 +81,9 @@ public class CSLL extends SLL {
             setTailPointer(getTail());
         }
     }
+    public void InsertTail(DNode node){
+        this.insertTail(node);
+    }
 
     @Override
     public void insert(DNode node, int position) {
@@ -88,6 +94,9 @@ public class CSLL extends SLL {
         }
         setTail(now);
         getTail().setNext(getHead());
+    }
+    public void Insert(DNode node, int position){
+        this.insert(node, position);
     }
 
     @Override
@@ -121,6 +130,9 @@ public class CSLL extends SLL {
         getTail().setNext(getHead());
 
     }
+    public void Sort() {
+        this.sort();
+    }
 
     @Override
     public DNode search(int data) {
@@ -142,6 +154,9 @@ public class CSLL extends SLL {
         }
         return found;
     }
+    public DNode Search(int data) {
+        return this.search(data);
+    }
 
     @Override
     public DNode deleteHead() {
@@ -150,6 +165,9 @@ public class CSLL extends SLL {
         getTail().setNext(head);
         setSize(size - 1);
         return tempoary;
+    }
+    public DNode DeleteHead() {
+        return this.deleteHead();
     }
 
     @Override
@@ -169,6 +187,9 @@ public class CSLL extends SLL {
             setSize(getSize() - 1);
             return tempoary;
         }
+    }
+    public DNode DeleteTail() {
+        return this.deleteTail();
     }
 
     @Override
@@ -199,5 +220,8 @@ public class CSLL extends SLL {
         }
         tempoarynow.setNext(now.getNext());
         return now;
+    }
+    public DNode Delete(int data) {
+        return this.delete(data);
     }
 }
