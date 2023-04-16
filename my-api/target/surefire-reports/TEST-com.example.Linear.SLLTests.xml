@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.17\bin"/>
-    <property name="sun.java.command" value="C:\Users\calga\AppData\Local\Temp\surefire13485958892598169613\surefirebooter-20230415221247912_3.jar C:\Users\calga\AppData\Local\Temp\surefire13485958892598169613 2023-04-15T22-12-47_743-jvmRun1 surefire-20230415221247912_1tmp surefire_0-20230415221247912_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\calga\AppData\Local\Temp\surefire3002329504019260450\surefirebooter-20230415223515816_3.jar C:\Users\calga\AppData\Local\Temp\surefire3002329504019260450 2023-04-15T22-35-15_657-jvmRun1 surefire-20230415223515816_1tmp surefire_0-20230415223515816_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="c:\Users\calga\Documents\GitHub\ENSF338-Final-Project-Group-35\my-api\target\test-classes;c:\Users\calga\Documents\GitHub\ENSF338-Final-Project-Group-35\my-api\target\classes;C:\Users\calga\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\calga\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\calga\AppData\Local\Temp\surefire13485958892598169613\surefirebooter-20230415221247912_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\calga\AppData\Local\Temp\surefire3002329504019260450\surefirebooter-20230415223515816_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.17+10-LTS-269"/>
@@ -61,12 +61,12 @@
     <property name="java.class.version" value="55.0"/>
   </properties>
   <testcase name="testClear" classname="com.example.Linear.SLLTests" time="0"/>
-  <testcase name="testSize" classname="com.example.Linear.SLLTests" time="0.001"/>
+  <testcase name="testSize" classname="com.example.Linear.SLLTests" time="0"/>
   <testcase name="testSort" classname="com.example.Linear.SLLTests" time="0"/>
   <testcase name="testOverloadConstructor" classname="com.example.Linear.SLLTests" time="0"/>
   <testcase name="testInsertHead" classname="com.example.Linear.SLLTests" time="0"/>
   <testcase name="testInsertTail" classname="com.example.Linear.SLLTests" time="0"/>
-  <testcase name="testInvalidDelete" classname="com.example.Linear.SLLTests" time="0.001">
+  <testcase name="testInvalidDelete" classname="com.example.Linear.SLLTests" time="0">
     <system-out><![CDATA[Value not found in list
 ]]></system-out>
   </testcase>
