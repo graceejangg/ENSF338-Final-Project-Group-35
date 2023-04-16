@@ -1,8 +1,9 @@
 package com.example.myLib.datastructures.Trees;
 
-import com.example.myLib.datastructures.nodes.TNode;
 import java.util.LinkedList;
 import java.util.Queue;
+
+import com.example.myLib.datastructures.nodes.TNode;
 
 public class BST {
 
@@ -95,90 +96,45 @@ public class BST {
             node.setParent(parent);
         }
     }
-
     // Finds the node equivalent to the node_to_delete in the tree and removes it.
     // If an object of that value is not found then it prints to the user that the
     // object was not found
     public void delete(int val) {
-        TNode current = this.root;
+        root = delete(root, val);
+    }
 
-        if (this.root == null) {
-            System.out.println("Tree is empty, " + val + " not found");
-            return;
+    // Delete helper function
+    private TNode delete(TNode node, int val){
+        if (node == null) {
+            System.out.println("Value not found in the tree");
+            return null;
         }
 
-        while (current != null) {
-
-            if (current.getData() == val) {
-                break;
-            } else if (current.getData() > val) {
-                current = current.getLeft();
-            } else {
-                current = current.getRight();
+        if (val < node.getData()) {
+            node.setLeft(delete(node.getLeft(), val));
+        } else if (val > node.getData()) {
+            node.setRight(delete(node.getRight(), val));
+        } else {
+            if (node.getLeft() == null) {
+                return node.getRight();
+            } else if (node.getRight() == null) {
+                return node.getLeft();
             }
 
-            if (current == null) {
-                System.out.println("Object to delete not found.");
-                return;
-            }
+            node.setData(minimumValue(node.getRight()));
+            node.setRight(delete(node.getRight(), node.getData()));
         }
 
-        if (current.getLeft() == null && current.getRight() == null) {
+        return node;
+    }
 
-            if (current != this.root)
-                if (current.getParent().getLeft() != null
-                        && current.getParent().getLeft().getData() == val) {
-                    current.getParent().setLeft(null);
-                } else {
-                    current.getParent().setRight(null);
-                }
-            else {
-                this.root = null;
-            }
+    private int minimumValue(TNode node){
+        int minValue = node.getData();
+        while (node.getLeft() != null) {
+            minValue = node.getLeft().getData();
+            node = node.getLeft();
         }
-
-        else if (current.getLeft() != null && current.getRight() != null) {
-            TNode smallest = current.getRight();
-            while (smallest.getLeft() != null) {
-                smallest = smallest.getLeft();
-            }
-
-            if (smallest.getParent().getRight() != null
-                    && smallest.getParent().getRight().getData() == smallest.getData()) {
-
-                smallest.getParent().setRight(smallest.getRight());
-
-            } else {
-                smallest.getParent().setLeft(smallest.getRight());
-            }
-            current.setData(smallest.getData());
-
-            if (smallest.getRight() != null) {
-                smallest.getRight().setParent(smallest.getParent());
-            }
-        }
-
-        else {
-            TNode child;
-
-            if (current.getLeft() != null) {
-                child = current.getLeft();
-            } else {
-                child = current.getRight();
-            }
-
-            if (current != getRoot()) {
-                if (current.getLeft() != null) {
-                    child.setParent(current.getParent());
-                    current.getParent().setLeft(child);
-                } else {
-                    child.setParent(current.getParent());
-                    current.getParent().setRight(child);
-                }
-            } else {
-                setRoot(child);
-            }
-        }
+        return minValue;
     }
 
     public void printInOrder() {
@@ -188,7 +144,7 @@ public class BST {
     public void printInOrder(TNode current) {
         if (current != null) {
             printInOrder(current.getLeft());
-            current.print();
+            System.out.println(current.getData());
             printInOrder(current.getRight());
         }
     }
@@ -198,6 +154,7 @@ public class BST {
     public void printBF() {
         // If tree is empty return
         if (this.root == null) {
+            System.out.println("Tree is empty.");
             return;
         }
 
@@ -206,8 +163,7 @@ public class BST {
         queue.add(this.root);
 
         while (!queue.isEmpty()) {
-            int levelSize = queue.size();
-            for (int i = 0; i < levelSize; i++) {
+            for (int levelSize = queue.size(); levelSize > 0; levelSize--) {
                 TNode curr = queue.poll();
                 System.out.print(curr.getData() + " ");
                 if (curr.getLeft() != null) {
@@ -216,7 +172,6 @@ public class BST {
                 if (curr.getRight() != null) {
                     queue.add(curr.getRight());
                 }
-
             }
             System.out.println();
         }
@@ -224,7 +179,7 @@ public class BST {
 
     public TNode search(int val) {
 
-        TNode current = getRoot();
+        TNode current = this.root;
 
         if (getRoot() == null) {
             System.out.println("Value " + val + " not found, since tree is empty.");
