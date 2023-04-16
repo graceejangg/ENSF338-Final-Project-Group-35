@@ -3,6 +3,7 @@ import myLib.datastructures.nodes.*;
 
 public class CDLL extends DLL
 {
+    //setters and getters
     public DNode getHead() {
         return head;
     }

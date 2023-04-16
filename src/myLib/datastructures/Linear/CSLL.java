@@ -8,7 +8,7 @@ public class CSLL extends SLL {
     private int size;
     private DNode tailPointer;
 
-    // GETTERS & SETTERS
+    // setters and getters
     public DNode getHead() {
         return head;
     }

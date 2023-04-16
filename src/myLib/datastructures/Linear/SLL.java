@@ -8,20 +8,15 @@ public class SLL {
     private int size;
     private DNode sorted;
 
+    //setters and getters
+
+
     public void setHead(DNode head) {
         this.head = head;
     }
 
     public DNode getHead() {
         return head;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public int getSize() {
-        return size;
     }
 
     public DNode getSorted() {
@@ -35,6 +30,16 @@ public class SLL {
     public DNode getTailPointer() {
         return null;
     }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    
     
     public SLL() {
         setHead(null);
@@ -47,31 +52,7 @@ public class SLL {
     }
 
     
-    public void insertHead(DNode node) {
-        if (getHead() != null) {
-            node.setNext(getHead());
-            setHead(node);
-        } else {
-            setHead(node);
-        }
-        setSize(getSize() + 1);
-
-    }
-
     
-    public void insertTail(DNode node) {
-        if (getHead() != null) {
-            DNode now = getHead();
-            while (now.getNext() != getTailPointer()) {
-                now = now.getNext();
-            }
-            now.setNext(node);
-        } else {
-            setHead(node);
-            
-        }
-        setSize(getSize() + 1);
-    }
 
     public void sort() {
 
@@ -128,6 +109,32 @@ public class SLL {
             now.setNext(node);
         }
     }
+
+    public void insertHead(DNode node) {
+        if (getHead() != null) {
+            node.setNext(getHead());
+            setHead(node);
+        } else {
+            setHead(node);
+        }
+        setSize(getSize() + 1);
+
+    }
+
+    
+    public void insertTail(DNode node) {
+        if (getHead() != null) {
+            DNode now = getHead();
+            while (now.getNext() != getTailPointer()) {
+                now = now.getNext();
+            }
+            now.setNext(node);
+        } else {
+            setHead(node);
+            
+        }
+        setSize(getSize() + 1);
+    }
     
     
 
@@ -166,16 +173,7 @@ public class SLL {
 
     
     
-    public boolean isSorted() {
-        DNode now = getHead();
-        while (now != null && now.getNext() != getTailPointer()) {
-            if (now.getData() > now.getNext().getData()) {
-                return false;
-            }
-            now = now.getNext();
-        }
-        return true;
-    }
+    
     
     public DNode search(int data) {
         DNode now = getHead();
@@ -186,6 +184,17 @@ public class SLL {
             now = now.getNext();
         }
         return null;
+    }
+
+    public boolean isSorted() {
+        DNode now = getHead();
+        while (now != null && now.getNext() != getTailPointer()) {
+            if (now.getData() > now.getNext().getData()) {
+                return false;
+            }
+            now = now.getNext();
+        }
+        return true;
     }
     
     public DNode deleteHead() {

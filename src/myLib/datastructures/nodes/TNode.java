@@ -64,15 +64,6 @@ public class TNode {
         this.data = data;
     }
 
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
-
-    // GETTERS
-    public TNode getParent() {
-        return this.parent;
-    }
-
     public TNode getLeft() {
         return this.left;
     }
@@ -88,6 +79,17 @@ public class TNode {
     public int getBalance() {
         return this.balance;
     }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    // GETTERS
+    public TNode getParent() {
+        return this.parent;
+    }
+
+    
 
     // Converts TNode to string then prints it
     public void print() {

@@ -1,4 +1,4 @@
-package myLib.datastructures.trees;
+package myLib.datastructures.Trees;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -67,18 +67,7 @@ public class AVL extends BST {
         return node;
     }
 
-    private TNode leftRotate(TNode node) {
-        TNode right = node.getRight();
-        TNode left = right.getLeft();
-
-        right.setLeft(node);
-        node.setRight(left);
-
-        node.setBalance(height(node.getLeft()) - height(node.getRight()));
-        right.setBalance(height(right.getLeft()) - height(right.getRight()));
-
-        return right;
-    }
+    
 
     private TNode rightRotate(TNode node) {
         TNode left = node.getLeft();
@@ -98,6 +87,19 @@ public class AVL extends BST {
             return 0;
         }
         return node.getBalance();
+    }
+
+    private TNode leftRotate(TNode node) {
+        TNode right = node.getRight();
+        TNode left = right.getLeft();
+
+        right.setLeft(node);
+        node.setRight(left);
+
+        node.setBalance(height(node.getLeft()) - height(node.getRight()));
+        right.setBalance(height(right.getLeft()) - height(right.getRight()));
+
+        return right;
     }
 
     private int getBalance(TNode node) {
